@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: rainbowmika-app
-          image: pmamueng/rainbowmika:0.0.1
+          image: pmamueng/rainbowmika:latest
           ports:
             - containerPort: 8080
           imagePullPolicy: Always

@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value="/api")
 public class WelcomeController {
 
-    @GetMapping("/criticalart")
-    public String CriticalArt() {
-        return "Peach Assault - Deadly Peach!!!!";
+    public static String version_1 = "0.0.1 - Peach Assault - Deadly Peach!!!!";
+    public static String version_2 = "0.0.2 - Nadeshiko!!!! Mika!!!!";
+
+    @GetMapping("/moves")
+    public String MoveSets() {
+        return version_1+"\r\n"+version_2;
     }
 }
