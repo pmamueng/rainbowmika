@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rainbowmika
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rainbowmika
+  template:
+    metadata:
+      labels:
+        app: rainbowmika
+    spec:
+      containers:
+        - name: rainbowmika-app
+          image: pmamueng/rainbowmika:0.0.1
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rainbowmika
+spec:
+  selector:
+    app: rainbowmika
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: LoadBalancer
